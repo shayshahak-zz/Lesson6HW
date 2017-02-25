@@ -117,11 +117,40 @@ namespace Lesson6
             //}
 
 
-            //ex7 - get 5 numbers and sort them form the the smallest to the biggest in a new array
-            int min = int.MaxValue;
+            ////ex7 - get 5 numbers and sort them form the the smallest to the biggest in a new array
+            //int min = int.MaxValue;
+            //int[] myArray = new int[5];
+            //int[] myNewArray = new int[5];
+            //int temp = 0;
+            //for (int i = 0; i < myArray.Length; i++)
+            //{
+            //    Console.WriteLine("please enter a number");
+            //    myArray[i] = int.Parse(Console.ReadLine());
+            //}
+            //for (int i = 0; i < myArray.Length; i++)
+            //{
+            //    min = int.MaxValue;
+            //    for (int j = 0; j < myArray.Length; j++)
+            //    {
+            //        if (myArray[j] < min)
+            //        {
+            //            min = myArray[j];
+            //            temp = j;
+            //        }
+            //    }
+            //    myArray[temp] = int.MaxValue;
+            //    myNewArray[i] = min;
+            //}
+            //for (int i = 0; i < myNewArray.Length; i++)
+            //{
+            //    Console.WriteLine("the number is {0}", myNewArray[i]);
+            //}
+
+
+            //ex7 - get 5 numbers and sort them form the smallest to the biggest in the same array
+            
             int[] myArray = new int[5];
-            int[] myNewArray = new int[5];
-            int temp = 0;
+            
             for (int i = 0; i < myArray.Length; i++)
             {
                 Console.WriteLine("please enter a number");
@@ -129,21 +158,20 @@ namespace Lesson6
             }
             for (int i = 0; i < myArray.Length; i++)
             {
-                min = int.MaxValue;
-                for (int j = 0; j < myArray.Length; j++)
+                
+                for (int j = 0; j < myArray.Length-1; j++)
                 {
-                    if (myArray[j] < min)
+                    if (myArray[j] > myArray[j+1])
                     {
-                        min = myArray[j];
-                        temp = j;
+                        myArray[j] = myArray[j] * myArray[j + 1];
+                        myArray[j + 1] = myArray[j] / myArray[j + 1];
+                        myArray[j] = myArray[j] / myArray[j + 1];
                     }
                 }
-                myArray[temp] = int.MaxValue;
-                myNewArray[i] = min;
             }
-            for (int i = 0; i < myNewArray.Length; i++)
+            for (int i = 0; i < myArray.Length; i++)
             {
-                Console.WriteLine("the number is {0}", myNewArray[i]);
+                Console.WriteLine("the number is {0}", myArray[i]);
             }
         }
     }
